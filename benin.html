@@ -44,6 +44,7 @@
 
   <!-- use d3 to insert a table from a csv file -->
   <!-- <script src="http://d3js.org/d3.v3.min.js"></script> -->
+  <!-- .attr adjusts the indentation -->
   <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
   <script type="text/javascript" charset="utf-8">
   d3.text("images/Benin2001_DPT_inter_results.csv", function(data) {
@@ -51,7 +52,7 @@
   
       var container = d3.select("body")
           .append("table")
-          .attr("style", "margin-left: 250px")
+          .attr("style", "margin-left: 50px")
           .selectAll("tr")
               .data(parsedCSV).enter()
               .append("tr")
