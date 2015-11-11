@@ -41,32 +41,28 @@
   </div>
 </div>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <!-- use d3 to insert a table from a csv file -->
-      <!-- <script src="http://d3js.org/d3.v3.min.js"></script> -->
-      <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
-      <script type="text/javascript" charset="utf-8">
-      d3.text("images/Benin2001_DPT_inter_results.csv", function(data) {
-          var parsedCSV = d3.csv.parseRows(data);
-      
-          var container = d3.select("body")
-              .append("table")
-      
-              .selectAll("tr")
-                  .data(parsedCSV).enter()
-                  .append("tr")
-      
-              .selectAll("td")
-                  .data(function(d) { return d; }).enter()
-                  .append("td")
-                  .text(function(d) { return d; });
-      });
-      </script>
-    </div>
-  </div>
-</div>
+
+  <!-- use d3 to insert a table from a csv file -->
+  <!-- <script src="http://d3js.org/d3.v3.min.js"></script> -->
+  <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <script type="text/javascript" charset="utf-8">
+  d3.text("images/Benin2001_DPT_inter_results.csv", function(data) {
+      var parsedCSV = d3.csv.parseRows(data);
+  
+      var container = d3.select("body")
+          .append("table")
+          .attr("style", "margin-left: 250px")
+          .selectAll("tr")
+              .data(parsedCSV).enter()
+              .append("tr")
+  
+          .selectAll("td")
+              .data(function(d) { return d; }).enter()
+              .append("td")
+              .text(function(d) { return d; });
+  });
+  </script>
+
 
 </body>
 </html>
