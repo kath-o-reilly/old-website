@@ -1,89 +1,121 @@
 <!DOCTYPE html>
 <html>
+<html lang="en">
 <head>
-<style>
-header {
-    background-color:#89bdd3;
-    color:white;
-    text-align:center;
-    font-family:helvetica;
-    padding:5px;	 
-}
-nav {
-    line-height:30px;
-    background-color:#9ad3de;
-    height:1100px;
-    width:250px;
-    float:left;
-    padding:5px;
-    font-family:helvetica;
-	      
-}
-section {
-    background-color:#e3e3e3;
-    width:800px;
-    height:1090px;
-    float:left;
-    padding:10px;
-    font-family:helvetica;
-	 	 
-}
-footer {
-    background-color:#c9c9c9;
-    color:black;
-    clear:both;
-    text-align:center;
-    padding:5px;
-    font-family:helvetica;	 	 
-}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+ 
 </head>
+
 <body>
 
-<header>
-<h1>Vaccine Epidemiology</h1>
-</header>
-
-<nav>
-<h1>Navigate to:</h1>
-<a href="benin.html">Benin</a> </br>
-Burkina Faso </br>
-Burundi </br>
-Cameroon </br>
-Democratic republic of the Congo </br>
-Egypt </br>
-Ethiopia </br>
-Gabon </br>
-Ghana </br>
-Guinea </br>
-Cote d'Ivore </br>
-Kenya </br>
-Lesotho </br>
-Liberia </br>
-Madagacar </br>
-Mali </br>
-Malawi </br>
-Morocco </br>
-Mozambique </br>
-Namibia </br>
-Nigeria </br>
-Rwanda </br>
-Senegal </br>
-Sierra Leonne </br>
-Swaziland </br>
-Tanzania </br>
-Uganda </br>
-Zambia </br>
-Zimbabwe </br>
+<!-- add in a navbar instead of a header -->
+nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Vaccine Epidemiology</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Option 1</a></li>
+            <li><a href="#">Option 2</a></li>
+            <li><a href="#">Option 3</a></li>
+            <li><a href="#">Help (br)</a></li>
+          </ul>
+          <form class="navbar-form navbar-right">
+            <input type="text" class="form-control" placeholder="Search (br)...">
+          </form>
+        </div>
+      </div>
 </nav>
 
-<section>
-<h1>DPT coverage</h1>
-<p>
-Picture of vaccination coverage
-</p>
+<!-- use a side navbar instead a nav-->
+<div class="container-fluid">
+	<div class="row row-offcanvas row-offcanvas-left"><!--/sidebar1-->
+        	<div class="col-sm-3 col-md-2 sidebar-offcanvas" id="sidebar" role="navigation">
+           		<ul class="nav nav-sidebar">
+		              	<li>Navigate to:</li>
+				<li><a href="benin.html">Benin</a> </li>
+				<li>Burkina Faso </li>
+				<li>Burundi </li>
+				<li>Cameroon </li>
+				<li>Democratic republic of the Congo </li>
+				<li>Egypt </li>
+				<li>Ethiopia </li>
+				<li>Gabon </li>
+				<li>Ghana </li>
+				<li>Guinea </li>
+				<li>Cote d'Ivore </li>
+				<li>Kenya </li>
+				<li>Lesotho </li>
+				<li>Liberia </li>
+				<li>Madagacar </li>
+				<li>Mali </li>
+				<li>Malawi </li>
+				<li>Morocco </li>
+				<li>Mozambique </li>
+				<li>Namibia </li>
+				<li>Nigeria </li>
+				<li>Rwanda </li>
+				<li>Senegal </li>
+				<li>Sierra Leonne </li>
+				<li>Swaziland </li>
+				<li>Tanzania </li>
+				<li>Uganda </li>
+				<li>Zambia </li>
+				<li>Zimbabwe </li>
+			</ul>
+		</div> <!--/sidebar-->
+           
+  
+          
+        </div><!--/sidebar1-->
+        
+        <div class="col-sm-9 col-md-10 main"> <!--/maincontent-->
+	<h1 class="page-header"> DPT coverage </h1>
+
+		<div class="row placeholders">
+		<div class="col-xs-6 col-sm-3 placeholder text-center">
+		<img src="//placehold.it/200/6666ff/fff" class="center-block img-responsive img-circle" alt="Generic placeholder thumbnail">
+		<h4>Label</h4>
+		<span class="text-muted">Something else</span>
+		</div>
+		<div class="col-xs-6 col-sm-3 placeholder text-center">
+		<img src="//placehold.it/200/66ff66/fff" class="center-block img-responsive img-circle" alt="Generic placeholder thumbnail">
+		<h4>Label</h4>
+		<span class="text-muted">Something else</span>
+		</div>
+		<div class="col-xs-6 col-sm-3 placeholder text-center">
+		<img src="//placehold.it/200/6666ff/fff" class="center-block img-responsive img-circle" alt="Generic placeholder thumbnail">
+		<h4>Label</h4>
+		<span class="text-muted">Something else</span>
+		</div>
+		<div class="col-xs-6 col-sm-3 placeholder text-center">
+		<img src="//placehold.it/200/66ff66/fff" class="center-block img-responsive img-circle" alt="Generic placeholder thumbnail">
+		<h4>Label</h4>
+		<span class="text-muted">Something else</span>
+		</div>
+		</div>
+   
+         <h2 class="sub-header">Picture of vaccination coverage </h2>
  
-</section>
+
+</div><!--/.container-->
+
+
+
+
+
+
 
 <footer>
 Vaccine Epidemiology Info here
