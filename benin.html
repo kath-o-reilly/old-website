@@ -76,25 +76,55 @@
 	</div>  <!-- doc section -->
 	<div class="bs-docs-section"> <!-- section for table -->
 		<div class="row">
-			<div class="col-md-12">
-				<div class="bs-component">
-					<div class="table table-hover" id="cov-table">
-						<thead>
-							<tr class="header">
-								<th>Intervention</th>
-								<th>Coverage</th>
-								<th>Expected gains</th>
-							</tr>
-						</thead>
-
-					</div> 
-				</div>
+			<div class="span12">
+				<div class="table table-hover" id="cov-table">
+					<thead>
+						<tr class="header">
+							<th>Intervention</th>
+							<th>Coverage</th>
+							<th>Expected gains</th>
+						</tr>
+					</thead>
+				</div> 
 			</div>
 		</div>
 	</div>
-
 </div>
 
+<!-- script for loading in data into the table above -->
+<script>
+	// load csv using d3
+	d3.csv("images/Benin2001_DPT_inter_results.csv", function(data){
+		// format data such as rounding
+		data.forEach(function(d)){
+			d.intervention = +d.variable;
+			d.coverage = +d.vacc;
+			d.nunv.mean = d3.round(+d.nunv,0);	
+		});
+		// create table and link to div
+		var dataTable = dc.dataTable("#cov-table");
+		// Run the data through crossfilter and load our 'facts'
+	  	var facts = crossfilter(data);
+	  	// Create dataTable dimension
+	  	var timeDimension = facts.dimension(function (d) {
+	    		return d.dtg;
+	  	});
+	  	// Table of data
+	  	dataTable.width(960).height(800)
+	    	.dimension(timeDimension)
+	    	.group(function(d) { return "Coverage Table"})
+	    	.size(10)
+	    	.columns([
+		 function(d) { return d.intervention; },
+		 function(d) { return d.coverage; },
+		 function(d) { return d.nunv.mean; }
+		 ])
+	    	.sortBy(function(d){ return d.dtg; })
+	    	.order(d3.ascending);
+		// Render
+		dc.renderAll();
+	});
+</script>
 
  
 <footer>
