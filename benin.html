@@ -100,12 +100,12 @@
 		// Run the data through crossfilter and load our 'facts'
 	  	var facts = crossfilter(data);
 	  	// Create dataTable dimension
-	  	var timeDimension = facts.dimension(function (d) {
-	    		return d.dtg;
+	  	var intDimension = facts.dimension(function (d) {
+	    		return d.intervention;
 	  	});
 	  	// Table of data
 	  	dataTable.width(960).height(800)
-	    	.dimension(timeDimension)
+	    	.dimension(intDimension)
 	    	.group(function(d) { return "Coverage Table"})
 	    	.size(10)
 	    	.columns([
@@ -113,7 +113,7 @@
 		 function(d) { return d.coverage; },
 		 function(d) { return d.nunv.mean; }
 		 ])
-	    	.sortBy(function(d){ return d.dtg; })
+	    	.sortBy(function(d){ return d.intervention; })
 	    	.order(d3.ascending);
 		// Render
 		dc.renderAll();
