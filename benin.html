@@ -92,7 +92,7 @@
 
 		// format data such as rounding
 		data.forEach(function(d){
-			d.intervention = d3.text(d.variable);
+			d.intervention = d3.csv(d.variable);
 			d.coverage = +d.vacc;
 			d.nunv.mean = d3.round(+d.nunv,0);	
 		});
