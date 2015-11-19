@@ -92,7 +92,7 @@
 
 		// format data such as rounding
 		data.forEach(function(d){
-			d.intervention = d3.format(d.variable);
+			d.intervention = d3.text(d.variable);
 			d.coverage = +d.vacc;
 			d.nunv.mean = d3.round(+d.nunv,0);	
 		});
@@ -114,7 +114,7 @@
 		 function(d) { return d.coverage; },
 		 function(d) { return d.nunv.mean; }
 		 ])
-	    	.sortBy(function(d){ return d.intervention; })
+	    	.sortBy(function(d){ return d.coverage; })
 	    	.order(d3.ascending);
 		// Render
 		dc.renderAll();
