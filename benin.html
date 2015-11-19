@@ -111,7 +111,7 @@
 	    	.columns([
 		 function(d) { return d.variable; },
 		 function(d) { return d.coverage; },
-		 function(d) { return d.nunv.mean; }
+		 function(d) { return d.nunv; }
 		 ])
 	    	.sortBy(function(d){ return d.coverage; })
 	    	.order(d3.descending);
