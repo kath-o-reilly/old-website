@@ -93,7 +93,7 @@
 		// format data such as rounding
 		data.forEach(function(d){
 			d.coverage = +d.vacc;
-			d.nunv.mean = d3.round(+d.nunv,0);	
+			d.nunv.mean = +d.nunv;	
 		});
 		// create table and link to div
 		var dataTable = dc.dataTable("#cov-table");
@@ -114,7 +114,7 @@
 		 function(d) { return d.nunv.mean; }
 		 ])
 	    	.sortBy(function(d){ return d.coverage; })
-	    	.order(d3.ascending);
+	    	.order(d3.descending);
 		// Render
 		dc.renderAll();
 	});
