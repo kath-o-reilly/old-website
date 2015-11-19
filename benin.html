@@ -96,7 +96,7 @@
 	// load csv using d3
 	d3.csv("images/Benin2001_DPT_inter_results.csv", function(data){
 		// format data such as rounding
-		data.forEach(function(d)){
+		data.forEach(function(d){
 			d.intervention = +d.variable;
 			d.coverage = +d.vacc;
 			d.nunv.mean = d3.round(+d.nunv,0);	
