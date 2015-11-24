@@ -99,34 +99,18 @@
 <script>
 	// load csv using d3
 	d3.csv("images/Benin2001_DPT_inter_results.csv", function(data){
-
-		// format data such as rounding
-		data.forEach(function(d){
-			d.coverage = +d.vacc;
-			d.nunv.mean = +d.nunv;	
-		});
 		// create table and link to div
 		var dataTable = dc.dataTable("#cov-table");
-		// Run the data through crossfilter and load our 'facts'
-	  	var facts = crossfilter(data);
-	  	// Create dataTable dimension
-	  	var intDimension = facts.dimension(function (d) {
-	    		return d.variable;
-	  	});
-	  	// Table of data
-	  	dataTable.width(150).height(800)
-	    	.dimension(intDimension)
-	    	.group(function(d) { return " "})
-	    	.size(10)
-	    	.columns([
-		 function(d) { return d.variable; },
-		 function(d) { return d.coverage; },
-		 function(d) { return d.nunv; }
-		 ])
-	    	.sortBy(function(d){ return d.coverage; })
-	    	.order(d3.descending);
-		// Render
-		dc.renderAll();
+                var parsedCSV = d3.csv.parseRows(data);
+                var container = d3.select("body")
+                    .append("table")
+                    .selectAll("tr")
+                        .data(parsedCSV).enter()
+                        .append("tr")
+                    .selectAll("td")
+                        .data(function(d) { return d; }).enter()
+                        .append("td")
+                        .text(function(d) { return d; });
 	}); // end of table
 	// Adds the svg canvas
 	var chart1 = d3.select("body")
