@@ -66,7 +66,7 @@
         				<img src="images/Benin2001_dpt_spatial_num.png" alt="unvaccinated" style="width:200px;height:500px">
       				</a>
     			</div> <!-- second item  -->
-    			<div class="col-sm-4">
+    			<div class="col-sm-4" id="chart1">
       				<a href="images/Benin2001_dpt_spatial_num.png" class="thumbnail">
         				<p>Numbers unvaccinated</p>
         				<img src="images/Benin2001_dpt_spatial_num.png" alt="unvaccinated" style="width:200px;height:500px">
@@ -136,7 +136,44 @@
 	    	.order(d3.descending);
 		// Render
 		dc.renderAll();
+	}); // end of table
+	// Adds the svg canvas
+	var chart1 = d3.select("body")
+	    .append("svg")
+	        .attr("width", width + margin.left + margin.right)
+	        .attr("height", height + margin.top + margin.bottom)
+	    .append("g")
+	        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+	        
+	// Get the data
+	d3.csv("images/dpt3_annual_estimates_WHO_T.csv", function(error, data) {
+	    data.forEach(function(d) {
+	        d.dpt = +d.Benin;
+	        d.year = +d.Year;
+	    });
+	
+	    // Scale the range of the data
+	    x.domain(d3.extent(data, function(d) { return d.year; }));
+	    y.domain([0, d3.max(data, function(d) { return d.dpt; })]);
+	
+	    // Add the valueline path.
+	    chart1.append("path")
+	        .attr("class", "line")
+	        .attr("d", valueline(data));
+	
+	    // Add the X Axis
+	    chart1.append("g")
+	        .attr("class", "x axis")
+	        .attr("transform", "translate(0," + year + ")")
+	        .call(xAxis);
+	
+	    // Add the Y Axis
+	    chart1.append("g")
+	        .attr("class", "y axis")
+	        .call(yAxis);
+	
 	});
+ 
 </script>
 
  
