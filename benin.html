@@ -106,7 +106,6 @@
 </script> -->
 
 <script>
-// other things
 var margin = {top: 20, right: 20, bottom: 70, left: 40},
     width = 600 - margin.left - margin.right,
     height = 300 - margin.top - margin.bottom;
@@ -128,17 +127,15 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", 
           "translate(" + margin.left + "," + margin.top + ")");
-
-  // Get the data
-d3.csv("images/dpt3_annual_estimates_WHO_T.csv", function(error, data) {
-      data.forEach(function(d) {
- 	d.Year = +d.Year;  // iterate of the data array to convert to a number
- 	d.Benin = +d.Benin;
-      }); // forEach
-      //console.log(data[0]);
-
+d3.csv("bar-data.csv", function(error, data) {
+    data.forEach(function(d) {
+        d.Year = parseDate(d.Year);
+        d.Benin = +d.Benin;
+    });
+	
   x.domain(data.map(function(d) { return d.Year; }));
-  y.domain([0, d3.max(data, function(d) { return d.Benin; })]);
+  //y.domain([0, d3.max(data, function(d) { return d.Benin; })]);
+y.domain([0, 100]);
   svg.append("g")
       .attr("class", "x axis")
       .attr("transform", "translate(0," + height + ")")
@@ -156,7 +153,7 @@ d3.csv("images/dpt3_annual_estimates_WHO_T.csv", function(error, data) {
       .attr("y", 6)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text("Value ($)");
+      .text("DPT coverage");
   svg.selectAll("bar")
       .data(data)
     .enter().append("rect")
@@ -164,10 +161,9 @@ d3.csv("images/dpt3_annual_estimates_WHO_T.csv", function(error, data) {
       .attr("x", function(d) { return x(d.Year); })
       .attr("width", x.rangeBand())
       .attr("y", function(d) { return y(d.Benin); })
+      //.attr("height", 100 );
       .attr("height", function(d) { return height - y(d.Benin); });
-      
-	});// d3.csv
- 
+});
 </script>
 
  
