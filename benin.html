@@ -127,7 +127,7 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", 
           "translate(" + margin.left + "," + margin.top + ")");
-d3.csv("bar-data.csv", function(error, data) {
+d3.csv("images/dpt3_annual_estimates_WHO_T.csv", function(error, data) {
     data.forEach(function(d) {
         d.Year = parseDate(d.Year);
         d.Benin = +d.Benin;
