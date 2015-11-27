@@ -86,7 +86,7 @@
 		<div class="row">
 			<div class="col-md-8">
 				<div class="bs-component">
-					<div class="table tale-striped table-hover" id="cov-table">
+					<div class="table tale-striped table-hover" id="table1">
 
 					</div> 
 				</div>
@@ -171,7 +171,7 @@ y.domain([0, 100]);
 <script>
 	d3.text("images/Benin2001_DPT_inter_results2.txt", function(datasetText) {
 	var parsedCSV = d3.csv.parseRows(datasetText);
-	var sampleHTML = d3.select("#viz")
+	var sampleHTML = d3.select("#table1")
 	    .append("table")
 	    .style("border-collapse", "collapse")
 	    .style("border", "2px black solid")
