@@ -5,13 +5,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- updated to local style sheet -->
-  <link rel="stylesheet" type="text/css" href="bootstrap.min.css"> 
+  <link rel="stylesheet" type="text/css" href="js/css/bootstrap.min.css"> 
   <!-- scripts that code is reliant on -->
-  <script src='//d3js.org/d3.v3.min.js' charset="utf-8"></script>
+  <script src='js/d3/d3.min.js' charset="utf-8"></script>
   <script src='js/crossfilter/crossfilter.js' type='text/javascript'></script>
   <script src='js/dc/dc.js' type='text/javascript'></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
  
 </head>
 <body class>
@@ -54,22 +54,22 @@
 	</div>
 	<div class="bs-docs-section">
 		<div class="row">
-    			<div class="col-sm-4">
-    				<a href="images/Benin2001_dpt_spatial_num.png" class="thumbnail">
-        				<p>Vaccination coverage</p>    
-        				<img src="images/Benin2001_dpt_spatial_name.png" alt="coverage" style="width:200px;height:500px">
-    				</a>
-    			</div> <!-- first item -->
-    			<div class="col-sm-4">
-      				<a href="images/Benin2001_dpt_spatial_num.png" class="thumbnail">
-        				<p>Numbers unvaccinated</p>
-        				<img src="images/Benin2001_dpt_spatial_num.png" alt="unvaccinated" style="width:200px;height:500px">
-      				</a>
-    			</div> <!-- second item  -->
-    			<div class="col-sm-4" id="chart1">
- 
-    			</div> <!-- third item  -->
-  		</div> <!-- row -->	
+			<div class="col-sm-4">
+				<a href="images/Benin2001_dpt_spatial_num.png" class="thumbnail">
+    				<p>Vaccination coverage</p>    
+    				<img src="images/Benin2001_dpt_spatial_name.png" alt="coverage" style="width:200px;height:500px">
+				</a>
+			</div> <!-- first item -->
+			<div class="col-sm-4"> <!-- second item -->
+  				<a href="images/Benin2001_dpt_spatial_num.png" class="thumbnail">
+    				<p>Numbers unvaccinated</p>
+    				<img src="images/Benin2001_dpt_spatial_num.png" alt="unvaccinated" style="width:200px;height:500px">
+  				</a>
+			</div> <!-- second item  -->
+			<div class="col-sm-4" id="chart1"> <!-- third item -->
+
+			</div> <!-- third item  -->
+		</div> <!-- row -->	
 	</div>  <!-- doc section -->
 	<div class="bs-docs-section"> <!-- section for pie chart -->
 		<div class="row">
@@ -113,6 +113,16 @@
                         .text(function(d) { return d; });
 	}); // end of table
 	
+</script>
+
+<script>
+  // Get the data
+d3.csv("images/dpt3_annual_estimates_WHO_T.csv", function(error, data) {
+      data.forEach(function(d) {
+          d.dpt = +d.Benin;
+          d.year = +d.Year;
+      });
+
 	// Set the dimensions of the canvas / graph
 	var	margin = {top: 30, right: 20, bottom: 30, left: 50},
 	width = 400 - margin.left - margin.right,
@@ -144,12 +154,8 @@
 	    .append("g")
 	        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 	        
-	// Get the data
-	d3.csv("images/dpt3_annual_estimates_WHO_T.csv", function(error, data) {
-	    data.forEach(function(d) {
-	        d.dpt = +d.Benin;
-	        d.year = +d.Year;
-	    });
+
+	
 	
 	    // Scale the range of the data
 	    x.domain(d3.extent(data, function(d) { return d.year; }));
