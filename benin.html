@@ -149,7 +149,7 @@ d3.csv("images/dpt3_annual_estimates_WHO_T.csv", function(error, data) {
 	    // Add the X Axis
 	    chart1.append("g")
 	        .attr("class", "x axis")
-	        .attr("transform", "translate(0," + Year + ")")
+	        .attr("transform", "translate(0," + d.Year + ")")
 	        .call(xAxis);
 	    // Add the Y Axis
 	    chart1.append("g")
