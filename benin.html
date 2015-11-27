@@ -119,7 +119,7 @@ d3.csv("images/dpt3_annual_estimates_WHO_T.csv", function(error, data) {
 	width = 400 - margin.left - margin.right,
 	height = 220 - margin.top - margin.bottom;
 	// Parse the date / time
-	var	parseDate = d3.time.format("%d-%b-%y").parse;
+	//var	parseDate = d3.time.format("%d-%b-%y").parse;
 	// Set the ranges
 	var	x = d3.time.scale().range([0, width]);
 	var	y = d3.scale.linear().range([height, 0]);
@@ -130,8 +130,8 @@ d3.csv("images/dpt3_annual_estimates_WHO_T.csv", function(error, data) {
 	.orient("left").ticks(5);
 	// Define the line
 	var	valueline = d3.svg.line()
-	.x(function(d) { return x(d.date); })
-	.y(function(d) { return y(d.close); });
+	.x(function(d) { return x(d.Year); })
+	.y(function(d) { return y(d.Benin); });
 	// Adds the svg canvas
 	var chart1 = d3.select("body")
 	    .append("svg")
@@ -140,8 +140,8 @@ d3.csv("images/dpt3_annual_estimates_WHO_T.csv", function(error, data) {
 	    .append("g")
 	        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 	    // Scale the range of the data
-	    x.domain(d3.extent(data, function(d) { return d.year; }));
-	    y.domain([0, d3.max(data, function(d) { return d.dpt; })]);
+	    x.domain(d3.extent(data, function(d) { return d.Year; }));
+	    y.domain([0, d3.max(data, function(d) { return d.Benin; })]);
 	    // Add the valueline path.
 	    chart1.append("path")
 	        .attr("class", "line")
@@ -149,7 +149,7 @@ d3.csv("images/dpt3_annual_estimates_WHO_T.csv", function(error, data) {
 	    // Add the X Axis
 	    chart1.append("g")
 	        .attr("class", "x axis")
-	        .attr("transform", "translate(0," + year + ")")
+	        .attr("transform", "translate(0," + Year + ")")
 	        .call(xAxis);
 	    // Add the Y Axis
 	    chart1.append("g")
