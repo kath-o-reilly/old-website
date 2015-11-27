@@ -95,7 +95,7 @@
 	</div>
 </div>
 
-<!-- script for loading in data into the table above -->
+<!-- script for loading in data into the table above 
 <script>
 	// load csv using d3
 	d3.csv("images/Benin2001_DPT_inter_results.csv", function(data){
@@ -103,14 +103,13 @@
         console.log(data);
 	}); // end of table
 	
-</script>
+</script> -->
 
 <script>
   // Get the data
 d3.csv("images/dpt3_annual_estimates_WHO_T.csv", function(error, data) {
       data.forEach(function(d) {
-          d.dpt = +d.Benin;
-          d.year = +d.Year;
+ 	console.log(data);
       });
 
 	// Set the dimensions of the canvas / graph
