@@ -135,7 +135,7 @@ d3.csv("images/dpt3_annual_estimates_WHO_T.csv", function(error, data) {
  	d.Year = +d.Year;  // iterate of the data array to convert to a number
  	d.Benin = +d.Benin;
       }); // forEach
-      console.log(data[0]);
+      //console.log(data[0]);
 
   x.domain(data.map(function(d) { return d.Year; }));
   y.domain([0, d3.max(data, function(d) { return d.Benin; })]);
