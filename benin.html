@@ -169,7 +169,7 @@ y.domain([0, 100]);
 </script>
 
 <script>
-	d3.text("auto_mpg_tmp.csv", function(datasetText) {
+	d3.text("images/Benin2001_DPT_inter_results2.txt", function(datasetText) {
 	var parsedCSV = d3.csv.parseRows(datasetText);
 	var sampleHTML = d3.select("#viz")
 	    .append("table")
