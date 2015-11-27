@@ -1,0 +1,4 @@
+Intervention,Estimated average coverage (95% CI),Estimated number of unvaccinated chidren (95% CI)
+Education,"78 (58 ,90)","350768 (662841 ,153655)"
+State,"62 (45 ,77)","600221 (868445 ,363678)"
+Population density,"62 (45 ,77)","600433 (868183 ,364169)"
