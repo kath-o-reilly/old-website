@@ -110,7 +110,7 @@ var margin = {top: 20, right: 20, bottom: 70, left: 40},
     width = 600 - margin.left - margin.right,
     height = 300 - margin.top - margin.bottom;
 // Parse the date / time
-var	parseDate = d3.time.format("%Y").parse;
+var parseDate = d3.time.format("%Y").parse;
 var x = d3.scale.ordinal().rangeRoundBands([0, width], .05);
 var y = d3.scale.linear().range([height, 0]);
 var xAxis = d3.svg.axis()
@@ -121,7 +121,9 @@ var yAxis = d3.svg.axis()
     .scale(y)
     .orient("left")
     .ticks(10);
-var svg = d3.select("body").append("svg")
+// this one defines what the chart is 
+var svg = d3.select("#chart1")
+    .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
