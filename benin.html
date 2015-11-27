@@ -161,10 +161,10 @@ d3.csv("images/dpt3_annual_estimates_WHO_T.csv", function(error, data) {
       .data(data)
     .enter().append("rect")
       .style("fill", "steelblue")
-      .attr("x", function(d) { return x(d.date); })
+      .attr("x", function(d) { return x(d.Year); })
       .attr("width", x.rangeBand())
-      .attr("y", function(d) { return y(d.value); })
-      .attr("height", function(d) { return height - y(d.value); });
+      .attr("y", function(d) { return y(d.Benin); })
+      .attr("height", function(d) { return height - y(d.Benin); });
       
 	});// d3.csv
  
