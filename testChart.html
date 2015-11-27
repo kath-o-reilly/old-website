@@ -57,7 +57,6 @@ d3.csv("bar-data.csv", function(error, data) {
     data.forEach(function(d) {
         d.Year = parseDate(d.Year);
         d.Benin = +d.Benin;
-        .key(function(d) { return d.Year;}).sortKeys(d3.ascending)
     });
 	
   x.domain(data.map(function(d) { return d.Year; }));
