@@ -109,7 +109,10 @@
   // Get the data
 d3.csv("images/dpt3_annual_estimates_WHO_T.csv", function(error, data) {
       data.forEach(function(d) {
- 	console.log(data);
+ 	d.year = +d.Year;
+ 	d.dpt = +d.Benin;
+      });
+      console.log(data[0]);
       });
 
 	// Set the dimensions of the canvas / graph
