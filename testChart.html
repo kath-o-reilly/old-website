@@ -60,7 +60,8 @@ d3.csv("bar-data.csv", function(error, data) {
     });
 	
   x.domain(data.map(function(d) { return d.Year; }));
-  y.domain([0, d3.max(data, function(d) { return d.Benin; })]);
+  //y.domain([0, d3.max(data, function(d) { return d.Benin; })]);
+y.domain([0, 100]);
 
   svg.append("g")
       .attr("class", "x axis")
@@ -89,9 +90,8 @@ d3.csv("bar-data.csv", function(error, data) {
       .attr("x", function(d) { return x(d.Year); })
       .attr("width", x.rangeBand())
       .attr("y", function(d) { return y(d.Benin); })
-      .attr("height", 100 );
-
-      //.attr("height", function(d) { return height - y(d.Benin); });
+      //.attr("height", 100 );
+      .attr("height", function(d) { return height - y(d.Benin); });
 
 });
 
