@@ -16,6 +16,12 @@
 </head>
 <body class>
   
+  <?php
+$myfile = fopen("tables/benin2001_cov.txt", "r") or die("Unable to open file!");
+echo fread($myfile,filesize("tables/benin2001_cov.txt"));
+fclose($myfile);
+?>
+  
 <!-- add in navbar that it consistent with mainpage -->  
 <div class="navbar navbar-default navbar-fixed-top">
 	<div class="container">
