@@ -16,12 +16,6 @@
 </head>
 <body class>
   
-  <?php
-$myfile = fopen("tables/benin2001_cov.txt", "r") or die("Unable to open file!");
-echo fread($myfile,filesize("tables/benin2001_cov.txt"));
-fclose($myfile);
-?>
-  
 <!-- add in navbar that it consistent with mainpage -->  
 <div class="navbar navbar-default navbar-fixed-top">
 	<div class="container">
@@ -81,12 +75,8 @@ fclose($myfile);
 		<div class="row">
 			<div class="col-md-8">
 				<div class="bs-component">
-					<p>The numbers unvaccinated is estimated from vaccination coverage and the number of children aged under 5 years of age. Vaccination coverage is estimated from a spatial analysis of the most recent DHS survey, and in this country vaccination coverage is 
-					<?php
-$myfile = fopen("tables/benin2001_cov.txt", "r") or die("Unable to open file!");
-echo fread($myfile,filesize("tables/benin2001_cov.txt"));
-fclose($myfile);
-?>.</p>
+					<p>The numbers unvaccinated is estimated from vaccination coverage and the number of children aged under 5 years of age. Vaccination coverage is estimated from a spatial analysis of the most recent DHS survey, and in this country vaccination coverage is XXX.</p>
+			<!-- note that we can't use PHP on Github leave the dynamic stuff for now -->	
 					<p>We also explore whether some factors are associated with changes in vaccination coverage. Where factors are associated with vaccination coverage, we explore the impact of removing the inequities associated with this factor. For example, if wealth is associated with vaccination coverage, we estimate the increase in number of vaccinated individuals if the ineqities associated with this risk factor were removed. </p>
 				</div>
 			</div>	
