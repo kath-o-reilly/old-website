@@ -112,8 +112,8 @@
 
 <script> // for reading in DPT file
 var margin = {top: 20, right: 20, bottom: 70, left: 40},
-    width = 200 - margin.left - margin.right,
-    height = 300 - margin.top - margin.bottom;
+    width = 300 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
 // Parse the date / time
 var parseDate = d3.time.format("%Y").parse;
 var x = d3.scale.ordinal().rangeRoundBands([0, width], .05);
@@ -157,7 +157,7 @@ y.domain([0, 100]);
       .call(yAxis)
     .append("text")
       .attr("transform", "rotate(-90)")
-      .attr("y", 6)
+      .attr("y", 3)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
       .text("DPT coverage");
